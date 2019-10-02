@@ -38,7 +38,7 @@ $(document).on("click", ".animal", displaygifs);
             console.log(responseedit);
             for (var i = 0; i < responseedit.length; i++){
                 var animalDiv = $("<button>");
-                animalDiv.addClass("d-inline-block");
+                animalDiv.addClass("btn btn-outline-success d-inline-block");
                 var p = $("<p>").text("Rating: " + responseedit[i].rating);
                 var animgif = $("<img>");
                     animgif.attr("src", responseedit[i].images.fixed_height_still.url);
