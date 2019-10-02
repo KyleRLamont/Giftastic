@@ -60,5 +60,5 @@ $(document).on("click", ".animal", displaygifs);
         } else {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
-        }});
+    }});
 });
