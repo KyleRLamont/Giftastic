@@ -37,8 +37,8 @@ $(document).on("click", ".animal", displaygifs);
             var responseedit = response.data;
             console.log(responseedit);
             for (var i = 0; i < responseedit.length; i++){
-                var animalDiv = $("<div>");
-                animalDiv.addClass("d-inline-block px-2");
+                var animalDiv = $("<button>");
+                animalDiv.addClass("d-inline-block");
                 var p = $("<p>").text("Rating: " + responseedit[i].rating);
                 var animgif = $("<img>");
                     animgif.attr("src", responseedit[i].images.fixed_height_still.url);
@@ -52,4 +52,13 @@ $(document).on("click", ".animal", displaygifs);
             }
         });
     };
+    $(document).on("click", ".gif", function() {
+        var state = $(this).attr("data-state");
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }});
 });
