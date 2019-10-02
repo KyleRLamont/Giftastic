@@ -25,6 +25,7 @@ $("#animalbtn").on("click", function(event) {
 
 $(document).on("click", ".animal", displaygifs);
     function displaygifs(){
+        $("#resultgif").empty();
         var searchterm = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Bk5QuTfcpPza5xYFYcMKbn1rl0kIDzw6&q=" + searchterm + "&limit=10&offset=0&lang=en"
         
@@ -37,11 +38,12 @@ $(document).on("click", ".animal", displaygifs);
             console.log(responseedit);
             for (var i = 0; i < responseedit.length; i++){
                 var animalDiv = $("<div>");
+                animalDiv.addClass("d-inline-block px-2");
                 var p = $("<p>").text("Rating: " + responseedit[i].rating);
                 var animgif = $("<img>");
-                    animgif.attr("src", responseedit[i].images.fixed_height_small_still.url);
-                    animgif.attr("data-still", responseedit[i].images.fixed_height_small_still.url);
-                    animgif.attr("data-animate", responseedit[i].images.fixed_height_small.url);
+                    animgif.attr("src", responseedit[i].images.fixed_height_still.url);
+                    animgif.attr("data-still", responseedit[i].images.fixed_height_still.url);
+                    animgif.attr("data-animate", responseedit[i].images.fixed_height.url);
                     animgif.attr("data-state", "still");
                     animgif.addClass("gif");
                 animalDiv.append(p);
