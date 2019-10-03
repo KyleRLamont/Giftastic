@@ -27,7 +27,7 @@ $(document).on("click", ".animal", displaygifs);
     function displaygifs(){
         $("#resultgif").empty();
         var searchterm = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Bk5QuTfcpPza5xYFYcMKbn1rl0kIDzw6&q=" + searchterm + "&limit=10&lang=en"
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=Bk5QuTfcpPza5xYFYcMKbn1rl0kIDzw6&q=" + searchterm + "&limit=10&offset=100&lang=en"
         
         $.ajax({
             url: queryURL,
